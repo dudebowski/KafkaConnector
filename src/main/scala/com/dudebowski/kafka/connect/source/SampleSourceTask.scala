@@ -8,9 +8,6 @@ import org.apache.kafka.connect.source.{SourceRecord, SourceTask}
 
 import scala.collection.JavaConverters._
 
-/**
- * Created by amutter on 24-12-16.
- */
 class SampleSourceTask extends SourceTask with StrictLogging {
   var poller: Option[SampleSourcePoller] = None
 
@@ -19,8 +16,11 @@ class SampleSourceTask extends SourceTask with StrictLogging {
   }
 
 
-  override def start(map: util.Map[String, String]): Unit = {
-      logger.info("start")
+  override def start(props: util.Map[String, String]): Unit = {
+    logger.info("start")
+    val sourceConfig = new SampleSourceConfig(props)
+    poller = Some(new SampleSourcePoller(sourceConfig))
+    logger.info("start")
   }
 
   override def version(): String = "1.0.0"

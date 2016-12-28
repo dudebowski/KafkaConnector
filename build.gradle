@@ -1,6 +1,6 @@
 
 group 'Sample'
-version '1.0.0'
+version '1.0.1'
 
 apply plugin: 'java'
 apply plugin: 'scala'
@@ -8,6 +8,7 @@ apply plugin: 'scala'
 apply plugin: 'maven'
 apply plugin: 'idea'
 apply plugin: "com.github.maiflai.scalatest"
+apply plugin: "com.github.johnrengelman.shadow"
 
 sourceCompatibility = 1.8
 
@@ -19,6 +20,7 @@ buildscript {
     }
     dependencies {
         classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:0.14"
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
     }
 }
 

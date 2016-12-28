@@ -7,10 +7,10 @@ class SampleSourcePoller(cfg: SampleSourceConfig) extends StrictLogging {
   val topic = cfg.getString("topic")
 
   def poll(): Seq[SourceRecord] = {
+    Thread.sleep(1000)
     logger.info("poll")
-
-    SampleSourceRecordProducer().produce("")
-  }
+    SampleSourceRecordProducer().produce(topic)
+   }
 }
 
 

@@ -12,7 +12,7 @@ class SampleSourceConfig(props: util.Map[String, String])
 }
 object SampleSourceConfig {
 
-  val Topic = "sampleTopic"
+  val Topic = "topic"
   val Duration = "duration"
 
   val definition: ConfigDef = new ConfigDef()

@@ -14,13 +14,11 @@ case class SampleSourceRecordProducer() {
   def produce(topic: String) : Seq[SourceRecord] = {
     List(
       new SourceRecord(
-          ConnectPartition(),                // source partion
-          ConnectOffset(),                   // source offset
-          topic,                             //topic
-          Schema.STRING_SCHEMA,              // key schema
-          java.util.UUID.randomUUID(),       // key
-          Schema.BYTES_SCHEMA,               // Schema
-          RecordPayload                      // val)
+          ConnectPartition(),
+          ConnectOffset(),
+          topic,
+          Schema.INT32_SCHEMA,
+          RecordPayload
         )
     )
   }
@@ -34,14 +32,7 @@ case class SampleSourceRecordProducer() {
     ).asJava
   }
 
-  def RecordPayload: util.Map[String, Int] = {
-    Map("seconds" -> Calendar.getInstance().get(Calendar.SECOND),
-        "Minutes" -> Calendar.getInstance().get(Calendar.SECOND)
-    ).asJava
+  def RecordPayload: Int = {
+    Calendar.getInstance().get(Calendar.SECOND)
   }
-
-  val schema = SchemaBuilder.struct().name("com.dudebowski.kafka.connect")
-    .field("name", Schema.STRING_SCHEMA)
-    .field("offset", Schema.INT64_SCHEMA)
-    .build()
 }

@@ -32,10 +32,12 @@ class SampleSourceConnector extends  SourceConnector with StrictLogging {
   override def config() = SampleSourceConfig.definition
 
   override def start(props: util.Map[String, String]): Unit = {
-    logger.info("Start SampleSourceConnector")
+    logger.info("Start SampleSourceConnector with: ")
+    logger.info(props.toString())
     configProps = Some(props)
     Try(new SampleSourceConfig(props)) match {
       case Failure(f) => throw new ConnectException("Couldn't start due to configuration error")
+      case _ => logger.info("started")
     }
   }
 
