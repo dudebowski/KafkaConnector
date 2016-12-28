@@ -1,5 +1,4 @@
-
-group 'Sample'
+group 'SampleConnector'
 version '1.0.1'
 
 apply plugin: 'java'
@@ -35,7 +34,6 @@ ext {
     avroVersion = '1.7.7'
     avro4sVersion = "1.6.0"
     confluentVersion = '3.0.1'
-
 }
 
 repositories {
@@ -45,7 +43,6 @@ repositories {
 }
 
 dependencies {
-
     compile "org.scala-lang:scala-library:$scala"
     compile "org.scala-lang:scala-compiler:$scala"
     compile "com.typesafe.scala-logging:scala-logging-slf4j_$scalaMajorVersion:$scalaLoggingVersion"
@@ -57,6 +54,4 @@ dependencies {
     testCompile "org.scalacheck:scalacheck_$scalaMajorVersion:$scalaCheck"
     testCompile "org.scalatest:scalatest_$scalaMajorVersion:$scalaTest"
     testCompile "junit:junit:$junit"
-
-    testRuntime 'org.pegdown:pegdown:1.6.0'
 }
