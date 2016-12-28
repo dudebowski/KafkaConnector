@@ -57,3 +57,7 @@ dependencies {
     
     testRuntime "org.pegdown:pegdown:1.6.0"
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.0'
+}
