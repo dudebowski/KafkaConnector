@@ -17,6 +17,6 @@ object SampleSourceConfig {
 
   val definition: ConfigDef = new ConfigDef()
     .define(Topic,Type.STRING,Importance.HIGH,"Target topic")
-    .define(Duration,Type.INT,Importance.HIGH,"polling sleep duration")
+    .define(Duration,Type.LONG,Importance.HIGH,"polling sleep duration")
 }
 

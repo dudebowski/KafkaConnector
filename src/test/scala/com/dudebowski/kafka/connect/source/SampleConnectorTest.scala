@@ -16,13 +16,4 @@ class SampleConnectorTest extends FunSuite with Matchers with BeforeAndAfter wit
     val hour = Calendar.getInstance().get(Calendar.HOUR)
     producer.ConnectPartition().asScala.exists(_ ==("partition", hour)) shouldBe true
   }
-
-  test("create schema"){
-    val schema = SchemaBuilder.struct().name("com.dudebowski.kafka.connect")
-      .field("name", Schema.STRING_SCHEMA)
-      .field("offset", Schema.INT64_SCHEMA)
-      .build()
-    val st = schema.toString()
-    System.out.print(st)
-  }
 }

@@ -5,9 +5,10 @@ import org.apache.kafka.connect.source.SourceRecord
 
 class SampleSourcePoller(cfg: SampleSourceConfig) extends StrictLogging {
   val topic = cfg.getString("topic")
+  val duration= cfg.getLong("duration")
 
   def poll(): Seq[SourceRecord] = {
-    Thread.sleep(1000)
+    Thread.sleep(duration)
     logger.info("poll")
     SampleSourceRecordProducer().produce(topic)
    }
