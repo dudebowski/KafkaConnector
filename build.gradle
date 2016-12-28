@@ -54,4 +54,6 @@ dependencies {
     testCompile "org.scalacheck:scalacheck_$scalaMajorVersion:$scalaCheck"
     testCompile "org.scalatest:scalatest_$scalaMajorVersion:$scalaTest"
     testCompile "junit:junit:$junit"
+    
+    testRuntime "org.pegdown:pegdown:1.6.0"
 }
